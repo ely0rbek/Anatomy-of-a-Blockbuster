@@ -1,0 +1,1 @@
+This project explores a vast dataset of films to analyze factors like genre, budget, runtime, and release date to see how they connect to box office revenue and ratings. it tells about whether there's a "formula" for success or how the film industry has changed over the years
