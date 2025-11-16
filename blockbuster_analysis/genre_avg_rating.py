@@ -15,7 +15,23 @@ def parse_genres(x):
     return []
 
 
-def plot_genre_avg_rating(csv_path):
+def plot_genre_avg_rating():
     df = pd.read_csv(csv_path, low_memory=False)
     df['genres_parsed'] = df['genres'].apply(parse_genres)
     df['vote_average'] = pd.to_numeric(df['vote_average'], errors='coerce')
+
+    df = df.explode('genres_parsed').dropna(subset=['genres_parsed'])
+    genre_stats = df.groupby('genres_parsed')['vote_average'].mean().sort_values(ascending=False)
+
+    top = genre_stats.head(15)
+    os.makedirs("plots", exist_ok=True)
+    plt.figure(figsize=(10,6))
+    plt.bar(top.index, top.values)
+    plt.xticks(rotation=45, ha='right')
+    plt.title("Top Genres by Average Rating")
+    plt.ylabel("Average Rating")
+    plt.tight_layout()
+    plt.savefig("plots/genres_avg_rating.png")
+    plt.show()
+
+plot_genre_avg_rating()

@@ -1,0 +1,1 @@
+plot_genre_avg_rating()
