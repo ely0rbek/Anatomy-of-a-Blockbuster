@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-df = pd.read_csv("D:\python\BlockbusterDB\\movies_metadata.csv",low_memory=False)
+df = pd.read_csv("D:\python\Anatomy_of_Blockbuster\datasets\\movies_metadata.csv",low_memory=False)
 
 df['revenue']= list(map(float,df["revenue"]))
 

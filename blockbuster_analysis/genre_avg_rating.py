@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import ast, os
 
-csv_path="D:\python\BlockbusterDB\\movies_metadata.csv"
+csv_path="D:\python\Anatomy_of_Blockbuster\datasets\\movies_metadata.csv"
 def parse_genres(x):
     if pd.isna(x): return []
     try:
