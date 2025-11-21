@@ -1,1 +1,1 @@
-plot_genre_avg_rating()
+ # plt.figure(figsize=(10,6))
