@@ -19,7 +19,8 @@ def safe_float(x):
     except:
         return np.nan
 
-def plot_genre_avg_revenue(csv_path):
+def plot_genre_avg_revenue():
+    csv_path="D:\python\Anatomy_of_Blockbuster\datasets\\movies_metadata.csv"
     df = pd.read_csv(csv_path, low_memory=False)
     df['genres_parsed'] = df['genres'].apply(parse_genres)
     df['budget'] = df['budget'].apply(safe_float)
@@ -39,5 +40,5 @@ def plot_genre_avg_revenue(csv_path):
     # plt.savefig("plots/genres_avg_revenue.png")
     plt.show()
 
-csv_path="D:\python\Anatomy_of_Blockbuster\datasets\\movies_metadata.csv"
-plot_genre_avg_revenue(csv_path)
+
+
