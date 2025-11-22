@@ -1,24 +1,18 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import ast, os
-
-
-def parse_genres(x):
-    if pd.isna(x): return []
-    try:
-        data = ast.literal_eval(x)
-        if isinstance(data, list):
-            return [d.get('name', '') for d in data if isinstance(d, dict)]
-    except:
-        return []
-    return []
+import ast
+from models import Parsing,csv_paths
 
 
 def plot_genre_avg_rating():
-    csv_path="D:\python\Anatomy_of_Blockbuster\datasets\\movies_metadata.csv"
-    df = pd.read_csv(csv_path, low_memory=False)
-    df['genres_parsed'] = df['genres'].apply(parse_genres)
+    csv_path=csv_paths()
+    parsing=Parsing()
+
+    df = pd.read_csv(csv_path.get_movies_path(), low_memory=False)
+
+    df['genres_parsed'] = df['genres'].apply(parsing.parse_genres)
+
     df['vote_average'] = pd.to_numeric(df['vote_average'], errors='coerce')
 
     df = df.explode('genres_parsed').dropna(subset=['genres_parsed'])

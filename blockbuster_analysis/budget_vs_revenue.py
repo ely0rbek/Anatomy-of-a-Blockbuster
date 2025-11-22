@@ -1,20 +1,15 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-
-
-def check_float(x):
-    try:
-        return float(str(x).replace(',', '').replace('$', ''))
-    except:
-        return np.nan
-    
+from models import Parsing, csv_paths
 
 def plot_budget_vs_revenue():
-    csv_path="D:\python\Anatomy_of_Blockbuster\datasets\\movies_metadata.csv"
-    df=pd.read_csv(csv_path,low_memory=False)
-    df["budget"]=df['budget'].apply(check_float)
-    df['revenue']=df['revenue'].apply(check_float)
+    csv_path=csv_paths()
+    parsing=Parsing()
+
+    df=pd.read_csv(csv_path.get_movies_path(),low_memory=False)
+    df["budget"]=df['budget'].apply(parsing.check_float)
+    df['revenue']=df['revenue'].apply(parsing.check_float)
     df=df[(df['budget']>0) & (df['revenue']>0)]
 
     x=np.log10(df['budget'])
@@ -31,7 +26,7 @@ def plot_budget_vs_revenue():
     # plt.savefig("plots/budget_vs_revenue.png")
     plt.show()
 
-
+plot_budget_vs_revenue()
 
 
 # ------------------- this is chart without log ------------------
