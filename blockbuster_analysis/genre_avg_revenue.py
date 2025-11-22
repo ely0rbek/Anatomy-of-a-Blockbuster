@@ -4,22 +4,24 @@ import matplotlib.pyplot as plt
 import ast
 
 
-def parse_genre(x):
-    if pd.isna(x): 
+def parse_genres(x):
+    if pd.isna(x): return []
+    try:
+        data = ast.literal_eval(x)
+        if isinstance(data, list):
+            return [d.get('name', '') for d in data if isinstance(d, dict)]
+    except Exception:
         return []
-    if isinstance(x,str):
-        data=ast.literal_eval(x)
-        if isinstance(data,list):
-            return [d.get('name','') for d in data if isinstance(d, dict)]
     return []
 
 def check_float(x):
-    if pd.isna(x):
-        return 0
-    return float(str(x).replace(',','').replace('$',''))
+    try:
+        return float(str(x).replace(',', '').replace('$', ''))
+    except:
+        return np.nan
 
 
-def plot_genre_revenue():
+def plot_genre_avg_revenue():
     csv_path="D:\python\Anatomy_of_Blockbuster\datasets\\movies_metadata.csv"
     df=pd.read_csv(csv_path,low_memory=False)
     df['genres_parsed']=df['genres'].apply(parse_genre)
