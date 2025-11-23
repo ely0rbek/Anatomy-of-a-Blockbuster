@@ -1,7 +1,7 @@
 import pandas as pd 
 import numpy as np
 import matplotlib.pyplot as plt
-from models import Parsing, csv_paths
+from blockbuster_analysis.models import Parsing, csv_paths
 
 def plot_revenue_by_year():
     csv_path=csv_paths()
@@ -24,4 +24,3 @@ def plot_revenue_by_year():
     # plt.savefig("plots/avg_revenue_by_year.png")
     plt.show()
 
-plot_revenue_by_year()
