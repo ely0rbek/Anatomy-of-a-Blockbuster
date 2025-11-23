@@ -1,7 +1,6 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import ast
 from models import csv_paths, Parsing
 
 def plot_genre_avg_revenue():
@@ -12,9 +11,6 @@ def plot_genre_avg_revenue():
 
     df['genres_parsed']=df['genres'].apply(parsing.parse_genres)
     df['revenue']=df['revenue'].apply(parsing.check_float)
-
-    # df['genres_parsed']=df['genres'].apply(parse_genres)
-    # df['revenue']=df['revenue'].apply(check_float)
 
     df = df.explode('genres_parsed').dropna(subset=['genres_parsed'])
     genre_stats = df.groupby('genres_parsed')['revenue'].mean().sort_values(ascending=False)
