@@ -1,7 +1,7 @@
 import pandas as pd 
 import numpy as np
 import matplotlib.pyplot as plt
-from models import Parsing, csv_paths
+from blockbuster_analysis.models import Parsing, csv_paths
 
 def plot_runtime_vs_revnue():
     csv_path=csv_paths()
