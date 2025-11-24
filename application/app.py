@@ -13,18 +13,39 @@ from blockbuster_analysis.genre_avg_revenue import plot_genre_avg_revenue
 from blockbuster_analysis.runtime_vs_revenue import plot_runtime_vs_revnue
 
 @contextmanager
+# def get_plot_figure(plot_func, title):
+#     try:
+#         st.subheader(title)
+#         plot_func()
+#         fig = plt.gcf()
+#         yield fig
+#     except Exception as e:
+#         st.error(f"'{title}' grafigini chizishda kutilmagan xatolik yuz berdi:")
+#         st.exception(e)
+#         yield None
+#     finally:
+#         if 'fig' in locals() and fig is not None:
+#             plt.close(fig)
+
 def get_plot_figure(plot_func, title):
+    fig = None
+    # fig_width=10
+    # fig_height=8
     try:
         st.subheader(title)
+        plt.close('all') 
+        # plt.figure(figsize=(fig_width, fig_height)) 
         plot_func()
         fig = plt.gcf()
-        yield fig
+        yield fig 
+        
     except Exception as e:
-        st.error(f"'{title}' grafigini chizishda kutilmagan xatolik yuz berdi:")
+        st.error(f"'{title}' grafigini chizishda xatolik yuz berdi:")
         st.exception(e)
         yield None
     finally:
-        if 'fig' in locals() and fig is not None:
+        # 5. Figureni yopish (Xotirani tozalash va ogohlantirishni yo'qotish)
+        if fig is not None:
             plt.close(fig)
 
 def main():
@@ -32,41 +53,81 @@ def main():
     st.title("Blockbuster Movies Data Analysis Dashboard")
 
     st.markdown("---")
-    st.header("Vizualizatsiya Tahlili (Vertikal joylashuv)")
 
-    with get_plot_figure(plot_revenue_by_year, "1. Yil bo'yicha O'rtacha Daromad") as fig:
-        if fig:
-            st.pyplot(fig, use_container_width=True)
+    col1, col2 = st.columns(2)
 
-    st.markdown("---")
+    with col1:
+        with get_plot_figure(plot_revenue_by_year, "1. Yil bo'yicha O'rtacha Daromad") as fig:
+            if fig:
+                st.pyplot(fig, use_container_width=True)
 
-    # 2. Budjet va Daromad
-    with get_plot_figure(plot_budget_vs_revenue, "2. Budjet va Daromad O'rtasidagi Bog'liqlik") as fig:
-        if fig:
-            st.pyplot(fig, use_container_width=True)
-
-    st.markdown("---")
-
-    # 3. Runtime va Daromad
-    with get_plot_figure(plot_runtime_vs_revnue, "3. Film Davomiyligi (Runtime) va Daromad O'rtasidagi Bog'liqlik") as fig:
-        if fig:
-            st.pyplot(fig, use_container_width=True)
+    with col2:
+        with get_plot_figure(plot_budget_vs_revenue, "2. Budjet va Daromad O'rtasidagi Bog'liqlik") as fig:
+            if fig:
+                st.pyplot(fig, use_container_width=True)
 
     st.markdown("---")
 
-    # 4. Janr bo'yicha O'rtacha Daromad
-    with get_plot_figure(plot_genre_avg_revenue, "4. Janr bo'yicha O'rtacha Daromad") as fig:
-        if fig:
-            st.pyplot(fig, use_container_width=True)
 
+    col3, col4 = st.columns(2)
+    
+    # 3-USTUN: Grafik 3
+    with col3:
+        with get_plot_figure(plot_runtime_vs_revnue, "3. Film Davomiyligi (Runtime) va Daromad Bog'liqligi") as fig:
+            if fig:
+                st.pyplot(fig, use_container_width=True)
+                
+    # 4-USTUN: Grafik 4
+    with col4:
+        with get_plot_figure(plot_genre_avg_revenue, "4. Janr bo'yicha O'rtacha Daromad") as fig:
+            if fig:
+                st.pyplot(fig, use_container_width=True)
+                
     st.markdown("---")
-
-    # 5. Janr bo'yicha O'rtacha Reyting
-    with get_plot_figure(plot_genre_avg_rating, "5. Janr bo'yicha O'rtacha Reyting") as fig:
-        if fig:
-            st.pyplot(fig, use_container_width=True)
+    
+    # 5-grafikni markazda joylashtirish uchun yon tomondan bo'sh joy qoldiramiz
+    col5_left, col5_center, col5_right = st.columns([1, 2, 1])
+    
+    with col5_center:
+        with get_plot_figure(plot_genre_avg_rating, "5. Janr bo'yicha O'rtacha Reyting") as fig:
+            if fig:
+                st.pyplot(fig, use_container_width=True)
             
     st.markdown("---")
+
+    # with get_plot_figure(plot_revenue_by_year, "1. Yil bo'yicha O'rtacha Daromad") as fig:
+    #     if fig:
+    #         st.pyplot(fig, use_container_width=True)
+
+    # st.markdown("---")
+
+    # # 2. Budjet va Daromad
+    # with get_plot_figure(plot_budget_vs_revenue, "2. Budjet va Daromad O'rtasidagi Bog'liqlik") as fig:
+    #     if fig:
+    #         st.pyplot(fig, use_container_width=True)
+
+    # st.markdown("---")
+
+    # # 3. Runtime va Daromad
+    # with get_plot_figure(plot_runtime_vs_revnue, "3. Film Davomiyligi (Runtime) va Daromad O'rtasidagi Bog'liqlik") as fig:
+    #     if fig:
+    #         st.pyplot(fig, use_container_width=True)
+
+    # st.markdown("---")
+
+    # # 4. Janr bo'yicha O'rtacha Daromad
+    # with get_plot_figure(plot_genre_avg_revenue, "4. Janr bo'yicha O'rtacha Daromad") as fig:
+    #     if fig:
+    #         st.pyplot(fig, use_container_width=True)
+
+    # st.markdown("---")
+
+    # # 5. Janr bo'yicha O'rtacha Reyting
+    # with get_plot_figure(plot_genre_avg_rating, "5. Janr bo'yicha O'rtacha Reyting") as fig:
+    #     if fig:
+    #         st.pyplot(fig, use_container_width=True)
+            
+    # st.markdown("---")
 
 
 
