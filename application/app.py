@@ -32,7 +32,7 @@ def get_plot_figure(plot_func, title):
     fig_width=6.4
     fig_height=4.8
     try:
-        st.subheader(title)
+        st.markdown(f"<h3 style='text-align: center;'>{title}</h3>", unsafe_allow_html=True)
         plt.close('all') 
         plt.figure(figsize=(fig_width, fig_height)) 
         plot_func()
@@ -50,7 +50,8 @@ def get_plot_figure(plot_func, title):
 
 def main():
     st.set_page_config(page_title="Blockbuster Data Dashboard", layout="wide")
-    st.title("Blockbuster Movies Data Analysis Dashboard")
+    title="Blockbuster Movies Data Analysis Dashboard"
+    st.markdown(f"<h1 style='text-align: center;'>{title}</h1>", unsafe_allow_html=True)
 
     st.markdown("---")
 
