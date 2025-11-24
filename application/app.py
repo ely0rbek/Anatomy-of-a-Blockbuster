@@ -29,12 +29,12 @@ from blockbuster_analysis.runtime_vs_revenue import plot_runtime_vs_revnue
 
 def get_plot_figure(plot_func, title):
     fig = None
-    # fig_width=10
-    # fig_height=8
+    fig_width=6.4
+    fig_height=4.8
     try:
         st.subheader(title)
         plt.close('all') 
-        # plt.figure(figsize=(fig_width, fig_height)) 
+        plt.figure(figsize=(fig_width, fig_height)) 
         plot_func()
         fig = plt.gcf()
         yield fig 

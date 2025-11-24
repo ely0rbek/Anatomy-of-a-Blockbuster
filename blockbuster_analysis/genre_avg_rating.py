@@ -26,4 +26,3 @@ def plot_genre_avg_rating():
     # plt.savefig("plots/genres_avg_rating.png")
     plt.show()
 
-plot_genre_avg_rating()

@@ -26,7 +26,7 @@ def plot_budget_vs_revenue():
     # plt.savefig("plots/budget_vs_revenue.png")
     plt.show()
 
-plot_budget_vs_revenue()
+
 
 
 # ------------------- this is chart without log ------------------
