@@ -40,11 +40,10 @@ def get_plot_figure(plot_func, title):
         yield fig 
         
     except Exception as e:
-        st.error(f"'{title}' grafigini chizishda xatolik yuz berdi:")
+        st.error(f"An error occurred while plotting '{title}':")
         st.exception(e)
         yield None
     finally:
-        # 5. Figureni yopish (Xotirani tozalash va ogohlantirishni yo'qotish)
         if fig is not None:
             plt.close(fig)
 
@@ -58,12 +57,12 @@ def main():
     col1, col2 = st.columns(2)
 
     with col1:
-        with get_plot_figure(plot_revenue_by_year, "1. Yil bo'yicha O'rtacha Daromad") as fig:
+        with get_plot_figure(plot_revenue_by_year, "1. Average Income by Year") as fig:
             if fig:
                 st.pyplot(fig, use_container_width=True)
 
     with col2:
-        with get_plot_figure(plot_budget_vs_revenue, "2. Budjet va Daromad O'rtasidagi Bog'liqlik") as fig:
+        with get_plot_figure(plot_budget_vs_revenue, "2. Relationship Between Budget and Income") as fig:
             if fig:
                 st.pyplot(fig, use_container_width=True)
 
@@ -74,13 +73,13 @@ def main():
     
     # 3-USTUN: Grafik 3
     with col3:
-        with get_plot_figure(plot_runtime_vs_revnue, "3. Film Davomiyligi (Runtime) va Daromad Bog'liqligi") as fig:
+        with get_plot_figure(plot_runtime_vs_revnue, "3. Movie Runtime and Revenue Relationship") as fig:
             if fig:
                 st.pyplot(fig, use_container_width=True)
                 
     # 4-USTUN: Grafik 4
     with col4:
-        with get_plot_figure(plot_genre_avg_revenue, "4. Janr bo'yicha O'rtacha Daromad") as fig:
+        with get_plot_figure(plot_genre_avg_revenue, "4. Average Revenue by Genre") as fig:
             if fig:
                 st.pyplot(fig, use_container_width=True)
                 
@@ -90,7 +89,7 @@ def main():
     col5_left, col5_center, col5_right = st.columns([1, 2, 1])
     
     with col5_center:
-        with get_plot_figure(plot_genre_avg_rating, "5. Janr bo'yicha O'rtacha Reyting") as fig:
+        with get_plot_figure(plot_genre_avg_rating, "5. Average Rating by Genre") as fig:
             if fig:
                 st.pyplot(fig, use_container_width=True)
             
