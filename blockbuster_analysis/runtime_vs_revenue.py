@@ -10,7 +10,7 @@ def plot_runtime_vs_revnue():
     df=pd.read_csv(csv_path.get_movies_path(),low_memory=False)
 
     df['runtime']=pd.to_numeric(df['runtime'],errors='coerce')
-    df['revenue']=df['revenue'].apply(parsing.check_float)
+    df['revenue']=df['revenue'].apply(parsing.parse_float)
 
 
     # x=np.log10(df['runtime'])

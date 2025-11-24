@@ -8,7 +8,7 @@ def plot_revenue_by_year():
     parsing=Parsing()
 
     df=pd.read_csv(csv_path.get_movies_path(),low_memory=False)
-    df['revenue']=df['revenue'].apply(parsing.check_float)
+    df['revenue']=df['revenue'].apply(parsing.parse_float)
     df['release_date']=pd.to_datetime(df['release_date'],errors='coerce')
     df['year']=df['release_date'].dt.year
 

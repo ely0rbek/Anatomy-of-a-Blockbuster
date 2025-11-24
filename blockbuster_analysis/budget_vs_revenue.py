@@ -1,15 +1,15 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from models import Parsing, csv_paths
+from blockbuster_analysis.models import Parsing, csv_paths
 
 def plot_budget_vs_revenue():
     csv_path=csv_paths()
     parsing=Parsing()
 
     df=pd.read_csv(csv_path.get_movies_path(),low_memory=False)
-    df["budget"]=df['budget'].apply(parsing.check_float)
-    df['revenue']=df['revenue'].apply(parsing.check_float)
+    df["budget"]=df['budget'].apply(parsing.parse_float)
+    df['revenue']=df['revenue'].apply(parsing.parse_float)
     df=df[(df['budget']>0) & (df['revenue']>0)]
 
     x=np.log10(df['budget'])

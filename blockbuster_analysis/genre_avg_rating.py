@@ -1,7 +1,6 @@
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
-from models import Parsing,csv_paths
+from blockbuster_analysis.models import Parsing,csv_paths
 
 
 def plot_genre_avg_rating():
@@ -27,3 +26,4 @@ def plot_genre_avg_rating():
     # plt.savefig("plots/genres_avg_rating.png")
     plt.show()
 
+plot_genre_avg_rating()

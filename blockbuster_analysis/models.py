@@ -15,7 +15,7 @@ class csv_paths:
         return self.csv_ratings_path
     
 class Parsing:
-    def check_float(self,x):
+    def parse_float(self,x):
         try:
             return float(str(x).replace(',', '').replace('$', ''))
         except:

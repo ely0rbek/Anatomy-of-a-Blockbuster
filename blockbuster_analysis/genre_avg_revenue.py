@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from models import csv_paths, Parsing
+from blockbuster_analysis.models import csv_paths, Parsing
 
 def plot_genre_avg_revenue():
     csv_path=csv_paths()
@@ -10,7 +10,7 @@ def plot_genre_avg_revenue():
     df=pd.read_csv(csv_path.get_movies_path(),low_memory=False)
 
     df['genres_parsed']=df['genres'].apply(parsing.parse_genres)
-    df['revenue']=df['revenue'].apply(parsing.check_float)
+    df['revenue']=df['revenue'].apply(parsing.parse_float)
 
     df = df.explode('genres_parsed').dropna(subset=['genres_parsed'])
     genre_stats = df.groupby('genres_parsed')['revenue'].mean().sort_values(ascending=False)
