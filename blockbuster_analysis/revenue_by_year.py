@@ -1,11 +1,9 @@
 import pandas as pd 
-import numpy as np
 import matplotlib.pyplot as plt
-from blockbuster_analysis.models import Parsing, csv_paths
+from blockbuster_analysis.models import csv_paths
 
 def plot_revenue_by_year():
     csv_path=csv_paths()
-
     df=pd.read_csv(csv_path.get_movies_path(),low_memory=False)
     df['revenue']= list(map(float,df["revenue"]))
     df['release_date']=pd.to_datetime(df['release_date'], errors='coerce')
