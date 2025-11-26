@@ -22,5 +22,5 @@ def show_plot_revenue_by_year():
 
     plt.show()
 
-
+show_plot_revenue_by_year()
 
