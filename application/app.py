@@ -62,7 +62,7 @@ def main():
                 st.pyplot(fig, use_container_width=True)
 
     with col2:
-        with get_plot_figure(plot_budget_vs_revenue, "2. Relationship Between Budget and Income") as fig:
+        with get_plot_figure(plot_budget_vs_revenue, "2. Relationship Between Budget and Revenue") as fig:
             if fig:
                 st.pyplot(fig, use_container_width=True)
 
