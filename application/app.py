@@ -11,6 +11,7 @@ from blockbuster_analysis.budget_vs_revenue import plot_budget_vs_revenue
 from blockbuster_analysis.genre_avg_rating import plot_genre_avg_rating
 from blockbuster_analysis.genre_avg_revenue import plot_genre_avg_revenue
 from blockbuster_analysis.runtime_vs_revenue import plot_runtime_vs_revnue
+from blockbuster_analysis.actor_popularity_vs_avg_rating_movie import plot_actor_popularity_vs_avg_rating_movie
 
 @contextmanager
 # def get_plot_figure(plot_func, title):
@@ -86,14 +87,25 @@ def main():
     st.markdown("---")
     
     # 5-grafikni markazda joylashtirish uchun yon tomondan bo'sh joy qoldiramiz
-    col5_left, col5_center, col5_right = st.columns([1, 2, 1])
+    # col5_left, col5_center, col5_right = st.columns([1, 2, 1])
+    col5, col6 = st.columns(2)
     
-    with col5_center:
+    with col5:
         with get_plot_figure(plot_genre_avg_rating, "5. Average Rating by Genre") as fig:
             if fig:
                 st.pyplot(fig, use_container_width=True)
-            
+
+    with col6:
+        with get_plot_figure(plot_actor_popularity_vs_avg_rating_movie, "6. Regression: Actor Popularity → Average Ratinge") as fig:
+            if fig:
+                st.pyplot(fig, use_container_width=True)
+                
     st.markdown("---")
+
+
+
+
+
 
     # with get_plot_figure(plot_revenue_by_year, "1. Yil bo'yicha O'rtacha Daromad") as fig:
     #     if fig:

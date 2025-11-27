@@ -9,7 +9,6 @@ def plot_runtime_vs_revnue():
     df['runtime']=pd.to_numeric(df['runtime'],errors='coerce')
     df['revenue']=df['revenue'].apply(Parsing.parse_float)
 
-
     # x=np.log10(df['runtime'])
     # y=np.log10(df['revenue'])
 

@@ -1,25 +1,20 @@
 import pandas as pd, ast
 import matplotlib.pyplot as plt
 import numpy as np
-from models import Parsing, csv_paths
-
-# Load data
+from blockbuster_analysis.models import csv_paths
 
 def plot_actor_popularity_vs_avg_rating_movie():
-    # parsing=Parsing() 
 
-    credits = pd.read_csv(csv_paths.csv_credits_path, low_memory=False)
     movies = pd.read_csv(csv_paths.csv_movies_path, low_memory=False)
+    credits = pd.read_csv(csv_paths.csv_credits_path, low_memory=False)
 
     # Clean movie IDs
     movies = movies[movies['id'].apply(lambda x: str(x).isdigit())]
     movies['id'] = movies['id'].astype(int)
     movies['vote_average'] = pd.to_numeric(movies['vote_average'], errors='coerce')
 
-    # Build dictionary for fast movie → rating lookup
     movie_rating_map = dict(zip(movies['id'], movies['vote_average']))
 
-    # Safe JSON parsing
     def safe_parse(x):
         try:
             r = ast.literal_eval(x)
@@ -29,7 +24,6 @@ def plot_actor_popularity_vs_avg_rating_movie():
 
     credits['cast'] = credits['cast'].apply(safe_parse)
 
-    # Build actor → list of movie IDs
     actor_movies = {}
     for _, row in credits.iterrows():
         mid_raw = row['id']
@@ -40,7 +34,6 @@ def plot_actor_popularity_vs_avg_rating_movie():
                 if actor:
                     actor_movies.setdefault(actor, []).append(mid)
 
-    # Compute actor popularity + average rating
     actor_stats = []
     for actor, mids in actor_movies.items():
         ratings = [movie_rating_map[m] for m in mids if m in movie_rating_map]
@@ -54,7 +47,6 @@ def plot_actor_popularity_vs_avg_rating_movie():
 
     df = pd.DataFrame(actor_stats)
 
-    # Linear regression (Popularity → Rating)
     x = df["Popularity"]
     y = df["Average_Rating"]
     m, b = np.polyfit(x, y, 1)
@@ -70,4 +62,4 @@ def plot_actor_popularity_vs_avg_rating_movie():
     plt.show()
 
 
-plot_actor_popularity_vs_avg_rating_movie()
+
