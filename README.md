@@ -80,3 +80,19 @@ streamlit run application/app.py
 ```
  Option 2: Via Jupyter Notebook <br>
  You can see the analysis through the ```presentation/project_analysis.ipynb```.
+
+ ## Data Sources
+ 1. Dataset Description
+ ```
+| File Name             | Description                                                            |
+| --------------------- | ---------------------------------------------------------------------- |
+| `movies_metadata.csv` | Contains movie titles, genres, budget, revenue, overview, etc.         |
+| `ratings_small.csv`   | Contains user ratings for movies (userId, movieId, rating, timestamp). |
+| `credits_small.csv`   | Includes cast and crew information.                                    |
+| `keywords.csv`        | Contains movie-related keywords.                                       |
+| `links_small.csv`     | Maps movie IDs across different platforms (TMDB, IMDB).                |
+```
+2. Original dataset source: The Movies Dataset (Kaggle)<br>
+```
+https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset
+```
