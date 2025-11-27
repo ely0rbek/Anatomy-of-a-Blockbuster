@@ -58,25 +58,25 @@ ANATOMY_OF_BLOCKBUSTER/
 ```
 ## Installation
 
-### 1. Clone the Repository
+ 1. Clone the Repository
 ```
 git clone https://github.com/ely0rbek/Anatomy-of-a-Blockbuster.git
 cd Anatomy-of-a-Blockbuster
 ```
-### 2. Create the virtual environment
+ 2. Create the virtual environment
 ```
 python -m venv blockbuster
 ```
-### 3. Activate Virtual Environment
-### 4. Install Dependencies
+ 3. Activate Virtual Environment
+ 4. Install Dependencies
 ```
 pip install -r requirements.txt
 ```
 
 ## Running the Project
-### Option 1: Run the Streamlit application
+ Option 1: Run the Streamlit application
 ```
 streamlit run application/app.py
 ```
-### Option 2: Via Jupyter Notebook
+ Option 2: Via Jupyter Notebook
 You can see the analysis through the ```presentation/project_analysis.ipynb```.
