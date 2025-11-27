@@ -1,9 +1,27 @@
-# Project Topic
+# Project Topic and Overview
+
+Anatomy of a Blockbuster. 
 
 This project explores a vast dataset of films to analyze factors like genre, budget, runtime, and release date to see how they connect to box office revenue and ratings. it tells about whether there's a "formula" for success or how the film industry has changed over the years
 
+## Project Overview
 
-I placed my databases in a folder called datasets and removed it from git tracking.
+This project explores a large collection of movie industry data to answer key questions about what makes a film successful:
 
-You can easily download all datasets from link below:
-https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset
+* How do **budget levels** influence box office revenue?
+* What is the relationship between **movie genre** and audience ratings?
+* Do certain genres consistently outperform others in profitability?
+* Have film revenues and ratings changed over time?
+* Are there patterns linking **runtime**, **release year**, and success metrics?
+
+This project performs a comprehensive analysis of the factors that shape a movie's financial and critical performance. Using movie metadata, it examines several important indicators, including:
+
+* **Budget**
+* **Revenue**
+* **Genre**
+* **Runtime**
+* **Release_year**
+* **Vote_average (rating)**
+* **Profitability (revenue – budget)**
+
+Through statistical exploration and visualization, the project uncovers hidden trends behind cinematic hits and provides insights into the formula for a blockbuster.
