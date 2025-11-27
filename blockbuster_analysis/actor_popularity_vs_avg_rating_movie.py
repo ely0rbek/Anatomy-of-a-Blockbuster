@@ -1,7 +1,7 @@
 import pandas as pd, ast
 import matplotlib.pyplot as plt
 import numpy as np
-from blockbuster_analysis.models import csv_paths
+from blockbuster_analysis.models import csv_paths, Parsing
 
 def plot_actor_popularity_vs_avg_rating_movie():
 
@@ -14,15 +14,8 @@ def plot_actor_popularity_vs_avg_rating_movie():
     movies['vote_average'] = pd.to_numeric(movies['vote_average'], errors='coerce')
 
     movie_rating_map = dict(zip(movies['id'], movies['vote_average']))
-
-    def safe_parse(x):
-        try:
-            r = ast.literal_eval(x)
-            return r if isinstance(r, list) else []
-        except:
-            return []
-
-    credits['cast'] = credits['cast'].apply(safe_parse)
+    
+    credits['cast'] = credits['cast'].apply(Parsing.safe_list_parse)
 
     actor_movies = {}
     for _, row in credits.iterrows():

@@ -3,6 +3,12 @@ import pandas as pd
 import ast
 
 class csv_paths:
+
+    csv_movies_path="D:\python\Anatomy_of_Blockbuster\datasets\\movies_metadata.csv"
+    csv_ratings_path="D:\python\Anatomy_of_Blockbuster\datasets\\ratings_small.csv"
+    csv_links_path="D:\python\Anatomy_of_Blockbuster\datasets\\links_small.csv"
+    csv_credits_path="D:\python\Anatomy_of_Blockbuster\datasets\\credits_small.csv"
+
     # def __init__(self):
     #     self.csv_movies_path="D:\python\Anatomy_of_Blockbuster\datasets\\movies_metadata.csv"
     #     self.csv_ratings_path="D:\python\Anatomy_of_Blockbuster\datasets\\ratings_small.csv"
@@ -18,10 +24,6 @@ class csv_paths:
     # def get_credits_path(self):
     #     return self.csv_credits_path
 
-    csv_movies_path="D:\python\Anatomy_of_Blockbuster\datasets\\movies_metadata.csv"
-    csv_ratings_path="D:\python\Anatomy_of_Blockbuster\datasets\\ratings_small.csv"
-    csv_links_path="D:\python\Anatomy_of_Blockbuster\datasets\\links_small.csv"
-    csv_credits_path="D:\python\Anatomy_of_Blockbuster\datasets\\credits_small.csv"
     
 class Parsing:
     @staticmethod
@@ -42,6 +44,13 @@ class Parsing:
             return []
         return []
     
+    @staticmethod
+    def safe_list_parse(x):
+        try:
+            r = ast.literal_eval(x)
+            return r if isinstance(r, list) else []
+        except:
+            return []
 
 
 
