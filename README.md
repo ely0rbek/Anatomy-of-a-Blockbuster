@@ -23,6 +23,7 @@ This project performs a comprehensive analysis of the factors that shape a movie
 Through statistical exploration and visualization, the project uncovers hidden trends behind cinematic hits and provides insights into the formula for a blockbuster.
 
 ## Project Structure
+```
 ANATOMY_OF_BLOCKBUSTER/
 │
 ├── application/                     # Web Application level: streamlit visualization 
@@ -54,5 +55,5 @@ ANATOMY_OF_BLOCKBUSTER/
 ├── requirements.txt                 # Python dependencies
 ├── README.md                        # Project documentation
 └── .gitignore                       # Files ignored by Git
-
+```
 
