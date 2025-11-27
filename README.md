@@ -21,3 +21,38 @@ This project performs a comprehensive analysis of the factors that shape a movie
 * **Profitability (revenue – budget)**
 
 Through statistical exploration and visualization, the project uncovers hidden trends behind cinematic hits and provides insights into the formula for a blockbuster.
+
+## Project Structure
+ANATOMY_OF_BLOCKBUSTER/
+│
+├── application/                     # Web Application level: streamlit visualization 
+│   ├── __init__.py
+│   └── app.py
+│
+├── blockbuster_analysis/            # Core analysis modules
+│   ├── __init__.py
+│   ├── actor_popularity_vs_avg_rating_movie.py
+│   ├── budget_vs_revenue.py
+│   ├── genre_avg_rating.py
+│   ├── genre_avg_revenue.py
+│   ├── models.py
+│   ├── revenue_by_year.py
+│   ├── runtime_vs_revenue.py
+│
+├── datasets/                        # Movie datasets used for analysis
+│   ├── credits_small.csv
+│   ├── keywords.csv
+│   ├── links_small.csv
+│   ├── movies_metadata.csv
+│   └── ratings_small.csv
+│
+├── presentation/                    # Jupyter notebooks, visuals, insights
+│   └── project_analysis.ipynb
+│
+├── tests/                           # Unit tests for project modules
+│
+├── requirements.txt                 # Python dependencies
+├── README.md                        # Project documentation
+└── .gitignore                       # Files ignored by Git
+
+
