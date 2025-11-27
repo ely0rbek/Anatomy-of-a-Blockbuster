@@ -1,10 +1,6 @@
-# Project Topic and Overview
+## Project Topic and Overview
 
 Anatomy of a Blockbuster. 
-
-This project explores a vast dataset of films to analyze factors like genre, budget, runtime, and release date to see how they connect to box office revenue and ratings. it tells about whether there's a "formula" for success or how the film industry has changed over the years
-
-## Project Overview
 
 This project explores a large collection of movie industry data to answer key questions about what makes a film successful:
 
