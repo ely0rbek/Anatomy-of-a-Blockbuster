@@ -4,13 +4,11 @@ import matplotlib.pyplot as plt
 from blockbuster_analysis.models import csv_paths, Parsing
 
 def plot_genre_avg_revenue():
-    csv_path=csv_paths()
-    parsing=Parsing()
 
-    df=pd.read_csv(csv_path.get_movies_path(),low_memory=False)
+    df=pd.read_csv(csv_paths.csv_movies_path,low_memory=False)
 
-    df['genres_parsed']=df['genres'].apply(parsing.parse_genres)
-    df['revenue']=df['revenue'].apply(parsing.parse_float)
+    df['genres_parsed']=df['genres'].apply(Parsing.parse_genres)
+    df['revenue']=df['revenue'].apply(Parsing.parse_float)
 
     df = df.explode('genres_parsed').dropna(subset=['genres_parsed'])
     genre_stats = df.groupby('genres_parsed')['revenue'].mean().sort_values(ascending=False)
@@ -25,7 +23,4 @@ def plot_genre_avg_revenue():
     plt.tight_layout()
     # plt.savefig("plots/genres_avg_revenue.png")
     plt.show()
-
-
-plot_genre_avg_revenue()
 

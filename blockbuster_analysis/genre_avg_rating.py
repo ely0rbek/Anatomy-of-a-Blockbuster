@@ -4,12 +4,10 @@ from blockbuster_analysis.models import Parsing,csv_paths
 
 
 def plot_genre_avg_rating():
-    csv_path=csv_paths()
-    parsing=Parsing()
 
-    df = pd.read_csv(csv_path.get_movies_path(), low_memory=False)
+    df = pd.read_csv(csv_paths.csv_movies_path, low_memory=False)
 
-    df['genres_parsed'] = df['genres'].apply(parsing.parse_genres)
+    df['genres_parsed'] = df['genres'].apply(Parsing.parse_genres)
 
     df['vote_average'] = pd.to_numeric(df['vote_average'], errors='coerce')
 
@@ -25,4 +23,3 @@ def plot_genre_avg_rating():
     plt.tight_layout()
     # plt.savefig("plots/genres_avg_rating.png")
     plt.show()
-

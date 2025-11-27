@@ -4,12 +4,10 @@ import matplotlib.pyplot as plt
 from blockbuster_analysis.models import Parsing, csv_paths
 
 def plot_budget_vs_revenue():
-    csv_path=csv_paths()
-    parsing=Parsing()
 
-    df=pd.read_csv(csv_path.get_movies_path(),low_memory=False)
-    df["budget"]=df['budget'].apply(parsing.parse_float)
-    df['revenue']=df['revenue'].apply(parsing.parse_float)
+    df=pd.read_csv(csv_paths.csv_movies_path,low_memory=False)
+    df["budget"]=df['budget'].apply(Parsing.parse_float)
+    df['revenue']=df['revenue'].apply(Parsing.parse_float)
     df=df[(df['budget']>0) & (df['revenue']>0)]
 
     x=np.log10(df['budget'])
@@ -26,8 +24,7 @@ def plot_budget_vs_revenue():
     # plt.savefig("plots/budget_vs_revenue.png")
     plt.show()
 
-
-
+plot_budget_vs_revenue()
 
 # ------------------- this is chart without log ------------------
     # x=df['budget']

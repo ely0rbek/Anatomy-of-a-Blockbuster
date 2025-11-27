@@ -3,25 +3,36 @@ import pandas as pd
 import ast
 
 class csv_paths:
-    def __init__(self):
-        self.csv_movies_path="D:\python\Anatomy_of_Blockbuster\datasets\\movies_metadata.csv"
-        self.csv_ratings_path="D:\python\Anatomy_of_Blockbuster\datasets\\ratings_small.csv"
-        self.csv_links_path="D:\python\Anatomy_of_Blockbuster\datasets\\links_small.csv"
+    # def __init__(self):
+    #     self.csv_movies_path="D:\python\Anatomy_of_Blockbuster\datasets\\movies_metadata.csv"
+    #     self.csv_ratings_path="D:\python\Anatomy_of_Blockbuster\datasets\\ratings_small.csv"
+    #     self.csv_links_path="D:\python\Anatomy_of_Blockbuster\datasets\\links_small.csv"
+    #     self.csv_credits_path="D:\python\Anatomy_of_Blockbuster\datasets\\credits_small.csv"
 
-    def get_movies_path(self):
-        return self.csv_movies_path
+    # def get_movies_path(self):
+    #     return self.csv_movies_path
     
-    def get_ratings_path(self):
-        return self.csv_ratings_path
+    # def get_ratings_path(self):
+    #     return self.csv_ratings_path
+    
+    # def get_credits_path(self):
+    #     return self.csv_credits_path
+
+    csv_movies_path="D:\python\Anatomy_of_Blockbuster\datasets\\movies_metadata.csv"
+    csv_ratings_path="D:\python\Anatomy_of_Blockbuster\datasets\\ratings_small.csv"
+    csv_links_path="D:\python\Anatomy_of_Blockbuster\datasets\\links_small.csv"
+    csv_credits_path="D:\python\Anatomy_of_Blockbuster\datasets\\credits_small.csv"
     
 class Parsing:
-    def parse_float(self,x):
+    @staticmethod
+    def parse_float(x):
         try:
             return float(str(x).replace(',', '').replace('$', ''))
         except:
             return np.nan
 
-    def parse_genres(self,x):
+    @staticmethod
+    def parse_genres(x):
         if pd.isna(x): return []
         try:
             data = ast.literal_eval(x)
