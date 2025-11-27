@@ -56,4 +56,15 @@ ANATOMY_OF_BLOCKBUSTER/
 ├── README.md                        # Project documentation
 └── .gitignore                       # Files ignored by Git
 ```
+## Installation
+
+### 1. Clone the Repository
+```
+git clone https://github.com/ely0rbek/Anatomy-of-a-Blockbuster.git
+cd Anatomy-of-a-Blockbuster
+```
+### 2. Create the virtual environment
+```
+python -m venv blockbuster
+```
 
