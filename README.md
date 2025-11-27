@@ -78,5 +78,5 @@ pip install -r requirements.txt
 ```
 streamlit run application/app.py
 ```
- Option 2: Via Jupyter Notebook
+ Option 2: Via Jupyter Notebook <br>
  You can see the analysis through the ```presentation/project_analysis.ipynb```.
