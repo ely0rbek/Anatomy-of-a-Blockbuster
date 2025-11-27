@@ -67,4 +67,16 @@ cd Anatomy-of-a-Blockbuster
 ```
 python -m venv blockbuster
 ```
+### 3. Activate Virtual Environment
+### 4. Install Dependencies
+```
+pip install -r requirements.txt
+```
 
+## Running the Project
+### Option 1: Run the Streamlit application
+```
+streamlit run application/app.py
+```
+### Option 2: Via Jupyter Notebook
+You can see the analysis through the ```presentation/project_analysis.ipynb```.
