@@ -12,6 +12,8 @@ from blockbuster_analysis.genre_avg_rating import plot_genre_avg_rating
 from blockbuster_analysis.genre_avg_revenue import plot_genre_avg_revenue
 from blockbuster_analysis.runtime_vs_revenue import plot_runtime_vs_revnue
 from blockbuster_analysis.actor_popularity_vs_avg_rating_movie import plot_actor_popularity_vs_avg_rating_movie
+from blockbuster_analysis.movie_count_by_year import plot_movie_count_by_year
+from blockbuster_analysis.avg_rating_by_year import plot_avg_rating_by_year
 
 @contextmanager
 # def get_plot_figure(plot_func, title):
@@ -102,44 +104,17 @@ def main():
                 
     st.markdown("---")
 
+    col7, col8 = st.columns(2)
 
+    with col7:
+        with get_plot_figure(plot_movie_count_by_year,"Number of Movies Released per Year (1950–2022)") as fig:
+            if fig:
+                st.pyplot(fig,use_container_width=True)
 
-
-
-
-    # with get_plot_figure(plot_revenue_by_year, "1. Yil bo'yicha O'rtacha Daromad") as fig:
-    #     if fig:
-    #         st.pyplot(fig, use_container_width=True)
-
-    # st.markdown("---")
-
-    # # 2. Budjet va Daromad
-    # with get_plot_figure(plot_budget_vs_revenue, "2. Budjet va Daromad O'rtasidagi Bog'liqlik") as fig:
-    #     if fig:
-    #         st.pyplot(fig, use_container_width=True)
-
-    # st.markdown("---")
-
-    # # 3. Runtime va Daromad
-    # with get_plot_figure(plot_runtime_vs_revnue, "3. Film Davomiyligi (Runtime) va Daromad O'rtasidagi Bog'liqlik") as fig:
-    #     if fig:
-    #         st.pyplot(fig, use_container_width=True)
-
-    # st.markdown("---")
-
-    # # 4. Janr bo'yicha O'rtacha Daromad
-    # with get_plot_figure(plot_genre_avg_revenue, "4. Janr bo'yicha O'rtacha Daromad") as fig:
-    #     if fig:
-    #         st.pyplot(fig, use_container_width=True)
-
-    # st.markdown("---")
-
-    # # 5. Janr bo'yicha O'rtacha Reyting
-    # with get_plot_figure(plot_genre_avg_rating, "5. Janr bo'yicha O'rtacha Reyting") as fig:
-    #     if fig:
-    #         st.pyplot(fig, use_container_width=True)
-            
-    # st.markdown("---")
+    with col8:
+        with get_plot_figure(plot_avg_rating_by_year, "Average Rating by Year (1950–2022)") as fig:
+            if fig:
+                st.pyplot(fig, use_container_width=True)
 
 
 

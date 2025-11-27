@@ -56,7 +56,7 @@ ANATOMY_OF_BLOCKBUSTER/
 ├── README.md                        # Project documentation
 └── .gitignore                       # Files ignored by Git
 ```
-## Installation
+## Project Installation
 
  1. Clone the Repository
 ```
