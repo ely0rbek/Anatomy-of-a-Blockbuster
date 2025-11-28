@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from blockbuster_analysis.models import Parsing, csv_paths
 
-def plot_runtime_vs_revnue():
+def plot_runtime_vs_revenue():
     df=pd.read_csv(csv_paths.csv_movies_path,low_memory=False)
 
     df['runtime']=pd.to_numeric(df['runtime'],errors='coerce')

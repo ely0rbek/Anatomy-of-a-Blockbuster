@@ -7,7 +7,7 @@ class csv_paths:
     csv_movies_path="D:\python\Anatomy_of_Blockbuster\datasets\\movies_metadata.csv"
     csv_ratings_path="D:\python\Anatomy_of_Blockbuster\datasets\\ratings_small.csv"
     csv_links_path="D:\python\Anatomy_of_Blockbuster\datasets\\links_small.csv"
-    csv_credits_path="D:\python\Anatomy_of_Blockbuster\datasets\\credits_small.csv"
+    csv_credits_path="D:\python\Anatomy_of_Blockbuster\datasets\\credits.csv"
 
     # def __init__(self):
     #     self.csv_movies_path="D:\python\Anatomy_of_Blockbuster\datasets\\movies_metadata.csv"

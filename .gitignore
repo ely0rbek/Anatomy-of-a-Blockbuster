@@ -1,3 +1,7 @@
 blockbuster/
 
 datasets/
+
+__pycache__/
+
+tempCodeRunnerFile/

@@ -14,7 +14,7 @@ def plot_genre_avg_revenue():
     genre_stats = df.groupby('genres_parsed')['revenue'].mean().sort_values(ascending=False)
     
     top_15_genre = genre_stats.head(15)
-    plt.figure(figsize=(10,6))
+    # plt.figure(figsize=(10,6))
     plt.bar(top_15_genre.index, top_15_genre.values)
     plt.yscale('log')
     plt.xticks(rotation=45, ha='right')

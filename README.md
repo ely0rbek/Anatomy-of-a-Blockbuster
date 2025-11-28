@@ -41,6 +41,7 @@ ANATOMY_OF_BLOCKBUSTER/
 │   ├── runtime_vs_revenue.py
 │
 ├── datasets/                        # Movie datasets used for analysis
+│   ├── credits.csv
 │   ├── credits_small.csv
 │   ├── keywords.csv
 │   ├── links_small.csv
@@ -88,7 +89,7 @@ streamlit run application/app.py
 | --------------------- | ---------------------------------------------------------------------- |
 | `movies_metadata.csv` | Contains movie titles, genres, budget, revenue, overview, etc.         |
 | `ratings_small.csv`   | Contains user ratings for movies (userId, movieId, rating, timestamp). |
-| `credits_small.csv`   | Includes cast and crew information.                                    |
+| `credits.csv`   | Includes cast and crew information.                                    |
 | `keywords.csv`        | Contains movie-related keywords.                                       |
 | `links_small.csv`     | Maps movie IDs across different platforms (TMDB, IMDB).                |
 ```
