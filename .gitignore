@@ -3,5 +3,9 @@ blockbuster/
 datasets/
 
 __pycache__/
+*.pyc
+*.pyo
+*.pyd
 
-tempCodeRunnerFile/
+
+tempCodeRunnerFile.py

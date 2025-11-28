@@ -89,7 +89,7 @@ streamlit run application/app.py
 | --------------------- | ---------------------------------------------------------------------- |
 | `movies_metadata.csv` | Contains movie titles, genres, budget, revenue, overview, etc.         |
 | `ratings_small.csv`   | Contains user ratings for movies (userId, movieId, rating, timestamp). |
-| `credits.csv`   | Includes cast and crew information.                                    |
+| `credits.csv`         | Includes cast and crew information.                                    |
 | `keywords.csv`        | Contains movie-related keywords.                                       |
 | `links_small.csv`     | Maps movie IDs across different platforms (TMDB, IMDB).                |
 ```
