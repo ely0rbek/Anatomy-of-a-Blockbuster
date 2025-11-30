@@ -33,16 +33,17 @@ ANATOMY_OF_BLOCKBUSTER/
 ├── blockbuster_analysis/            # Core analysis modules
 │   ├── __init__.py
 │   ├── actor_popularity_vs_avg_rating_movie.py
+│   ├── avg_rating_by_year.py
 │   ├── budget_vs_revenue.py
 │   ├── genre_avg_rating.py
 │   ├── genre_avg_revenue.py
 │   ├── models.py
+│   ├── movie_count_by_year.py
 │   ├── revenue_by_year.py
 │   ├── runtime_vs_revenue.py
 │
 ├── datasets/                        # Movie datasets used for analysis
 │   ├── credits.csv
-│   ├── credits_small.csv
 │   ├── keywords.csv
 │   ├── links_small.csv
 │   ├── movies_metadata.csv

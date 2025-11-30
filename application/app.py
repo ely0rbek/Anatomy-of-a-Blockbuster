@@ -16,20 +16,6 @@ from blockbuster_analysis.movie_count_by_year import plot_movie_count_by_year
 from blockbuster_analysis.avg_rating_by_year import plot_avg_rating_by_year
 
 @contextmanager
-# def get_plot_figure(plot_func, title):
-#     try:
-#         st.subheader(title)
-#         plot_func()
-#         fig = plt.gcf()
-#         yield fig
-#     except Exception as e:
-#         st.error(f"'{title}' grafigini chizishda kutilmagan xatolik yuz berdi:")
-#         st.exception(e)
-#         yield None
-#     finally:
-#         if 'fig' in locals() and fig is not None:
-#             plt.close(fig)
-
 def get_plot_figure(plot_func, title):
     fig = None
     fig_width=8
@@ -81,14 +67,12 @@ def main():
 
 
     col4,col5 = st.columns(2)
-    # col3, col4 = st.columns(2)
     
     with col4:
         with get_plot_figure(plot_genre_avg_revenue, "Average Revenue by Genre") as fig:
             if fig:
                 st.pyplot(fig, use_container_width=True)
-                
-
+    
     with col5:
         with get_plot_figure(plot_genre_avg_rating, "Average Rating by Genre") as fig:
             if fig:
